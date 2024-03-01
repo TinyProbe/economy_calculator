@@ -58,10 +58,10 @@ int argument_check(int ac,
     cerr << "    1e0 <= benchmark && benchmark <= 1e12" << '\n';
     return -6;
   }
-  if (tax_rate < (long long)1e0 || tax_rate > (long long)1e2) {
+  if (tax_rate < 1e-5 || tax_rate > 1e2) {
     cerr << "invaild argument:" << '\n';
     cerr << "  tax_rate:" << '\n';
-    cerr << "    1e0 <= tax_rate && tax_rate <= 1e2" << '\n';
+    cerr << "    1e-5 <= tax_rate && tax_rate <= 1e2" << '\n';
     return -7;
   }
   return 0;
