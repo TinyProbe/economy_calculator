@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 #include <string>
 #include <vector>
 #include <random>
@@ -145,9 +146,11 @@ int main(int ac, char **av) {
   random_generate(property, n, mn, mx);
   tax_rate_calculate_before(property, before);
   tax_rate_calculate_after(property, after, benchmark, tax_rate);
-  // print_vector(property, unit);
-  // print_vector(before, unit);
-  // print_vector(after, unit);
+  if (n <= 20) {
+    print_vector(property, unit);
+    print_vector(before, unit);
+    print_vector(after, unit);
+  }
   cout << regex_money(
       accumulate(property.begin(), property.end(), 0ull), unit) << '\n';
   cout << regex_money(
