@@ -134,6 +134,7 @@ void print_vector(vector<long long> const &v, size_t unit) {
   }
 }
 int main(int ac, char **av) {
+  ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
   vector<long long> property, before, after;
   long long n, mn, mx, benchmark;
   double tax_rate;
