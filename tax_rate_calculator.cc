@@ -4,9 +4,7 @@
 #include <string>
 #include <vector>
 #include <random>
-
 using namespace std;
-
 int argument_check(int ac,
                    char **av,
                    long long &n,
