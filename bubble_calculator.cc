@@ -51,10 +51,10 @@ double inflation_calculate(double const &principal,
                            double const &actual_circulation) {
   return (actual_circulation - principal) * (interest_rate / 1e2);
 }
-string const &regex_money(double value, size_t unit) {
+template<class T> string const &regex_money(T value, size_t unit) {
   static string s1, s2;
   stringstream ss;
-  ss << fixed << setprecision(0) << value;
+  ss << fixed << setprecision(20) << value;
   ss >> s1;
   s2.clear();
   for (size_t i = 1; i <= s1.size(); ++i) {
