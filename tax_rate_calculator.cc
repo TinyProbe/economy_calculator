@@ -28,10 +28,10 @@ int argument_check(int ac,
   mx = atoll(av[3]);
   benchmark = atoll(av[4]);
   tax_rate = atof(av[5]);
-  if (n < (long long)1e0 || n > (long long)1e5) {
+  if (n < (long long)1e0 || n > (long long)1e8) {
     cerr << "invaild argument:" << '\n';
     cerr << "  n:" << '\n';
-    cerr << "    1e0 <= n && n <= 1e5" << '\n';
+    cerr << "    1e0 <= n && n <= 1e8" << '\n';
     return -2;
   }
   if (mn < (long long)1e0 || mn > (long long)1e12) {
@@ -114,10 +114,10 @@ void tax_rate_calculate_after(vector<long long> const &property,
         ((double)property[i] / (double)benchmark) * property[i];
   }
 }
-string const &regex_money(long long value, size_t unit) {
+template<class T> string const &regex_money(T value, size_t unit) {
   static string s1, s2;
   stringstream ss;
-  ss << value;
+  ss << fixed << setprecision(20) << value;
   ss >> s1;
   s2.clear();
   for (size_t i = 1; i <= s1.size(); ++i) {
@@ -149,10 +149,10 @@ int main(int ac, char **av) {
   // print_vector(before, unit);
   // print_vector(after, unit);
   cout << regex_money(
-      accumulate(property.begin(), property.end(), 0ll), unit) << '\n';
+      accumulate(property.begin(), property.end(), 0ull), unit) << '\n';
   cout << regex_money(
-      accumulate(before.begin(), before.end(), 0ll), unit) << '\n';
+      accumulate(before.begin(), before.end(), 0ull), unit) << '\n';
   cout << regex_money(
-      accumulate(after.begin(), after.end(), 0ll), unit) << '\n';
+      accumulate(after.begin(), after.end(), 0ull), unit) << '\n';
   return 0;
 }
