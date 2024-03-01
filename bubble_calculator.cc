@@ -66,6 +66,7 @@ string const &regex_money(double value, size_t unit) {
   return s2;
 }
 int main(int ac, char **av) {
+  ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
   double principal;
   double reserve_ratio;
   double interest_rate;
