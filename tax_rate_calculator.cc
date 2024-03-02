@@ -91,10 +91,10 @@ void tax_rate_calculate_after(vector<long long> const &property,
                               double tax_rate) {
   size_t n = property.size();
   after.resize(n);
+  tax_rate /= 1e2;
   for (size_t i = 0; i < n; ++i) {
-    double tax_rate_ = tax_rate / 1e2;
     double ratio = (double)property[i] / (double)benchmark;
-    after[i] = min(tax_rate_, tax_rate_ * ratio) * property[i];
+    after[i] = min(tax_rate, tax_rate * ratio) * property[i];
   }
 }
 template<class T> string const &regex_money(T value, size_t unit) {
