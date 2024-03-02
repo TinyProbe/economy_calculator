@@ -23,10 +23,10 @@ int argument_check(int ac,
   n = atoll(av[1]);
   benchmark = atoll(av[2]);
   tax_rate = atof(av[3]);
-  if (n < (long long)1e1 || n > (long long)1e8) {
+  if (n < (long long)1e0 || n > (long long)1e8) {
     cerr << "invaild argument:" << '\n';
     cerr << "  n:" << '\n';
-    cerr << "    1e1 <= n && n <= 1e8" << '\n';
+    cerr << "    1e0 <= n && n <= 1e8" << '\n';
     return -2;
   }
   if (benchmark < (long long)1e0 || benchmark > (long long)1e12) {
