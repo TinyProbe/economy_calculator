@@ -14,7 +14,7 @@ int argument_check(int ac,
   if (ac != 4) {
     cerr << "invaild argument:" << '\n';
     cerr << "  usage:" << '\n';
-    cerr << "    ./[a.exe] <n> <tax_rate> <benchmark>" << '\n';
+    cerr << "    ./[a.exe] <n> <benchmark> <tax_rate>" << '\n';
     cerr << "    <n>: Number of social members." << '\n';
     cerr << "    <benchmark>: Benchmark max income." << '\n';
     cerr << "    <tax_rate>: Max tax rate in next system." << '\n';
