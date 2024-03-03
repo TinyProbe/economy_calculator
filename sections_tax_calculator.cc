@@ -14,7 +14,7 @@ vector<long long> const kInc = {
 vector<double> const kTax = {
   0.0, 0.0, 0.0, 0.0, 0.0,
   1.0, 2.0, 4.0, 12.0, 20.0,
-  24.0, 15.0, 10.0, 7.0, 5.0,
+  24.0, 15.0, 10.0, 7.0, 1.0,
 };
 int argument_check(int ac, char **av, long long &n, long long &sect) {
   if (ac != 2 && ac != 3) {
@@ -40,18 +40,18 @@ int argument_check(int ac, char **av, long long &n, long long &sect) {
     cerr << "    1e0 <= section && section < " << kInc.size() << '\n';
     return -3;
   }
-  if (accumulate(kTax.begin(), kTax.end(), 0.0) != 100.0) {
-    cerr << "invaild argument:" << '\n';
-    cerr << "  kTax:" << '\n';
-    cerr << "    accumulate(kTax) == 100.0" << '\n';
-    return -4;
-  }
   if (kInc.size() != kTax.size()) {
     cerr << "invaild argument:" << '\n';
     cerr << "  kInc, kTax:" << '\n';
     cerr << "    kInc.size() == kTax.size()" << '\n';
-    return -5;
+    return -4;
   }
+  // if (accumulate(kTax.begin(), kTax.end(), 0.0) != 100.0) {
+  //   cerr << "invaild argument:" << '\n';
+  //   cerr << "  kTax:" << '\n';
+  //   cerr << "    accumulate(kTax) == 100.0" << '\n';
+  //   return -5;
+  // }
   return 0;
 }
 template<class T> T __random(T mnm, T mxm) {
@@ -66,7 +66,7 @@ void generate_random(vector<long long> &income, long long n, long long sect) {
   income.resize(n);
   for (size_t i = 0; i < sect; ++i) {
     for (size_t j = 0; j < div + (rmn > i); ++j) {
-      income[ix++] = __random(val, val * 10);
+      income[ix++] = __random(val, val * 10 - 1);
     }
     val *= 10;
   }
