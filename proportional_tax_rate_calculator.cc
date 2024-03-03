@@ -18,7 +18,7 @@ int argument_check(int ac,
     cerr << "    ./[a.exe] <n> <income> <tax_rate> [tax_rate_l]" << '\n';
     cerr << "    <n>: Number of social members." << '\n';
     cerr << "    <income>: Base income(year)." << '\n';
-    cerr << "    <tax_rate>: Base tax rate." << '\n';
+    cerr << "    <tax_rate>(%): Base tax rate." << '\n';
     cerr << "    [tax_rate_l]: Limit tax rate." << '\n';
     return -1;
   }
@@ -42,13 +42,13 @@ int argument_check(int ac,
   }
   if (tax_rate < 1e-5 || tax_rate > 1e5) {
     cerr << "invaild argument:" << '\n';
-    cerr << "  tax_rate:" << '\n';
+    cerr << "  tax_rate(%):" << '\n';
     cerr << "    1e-5 <= tax_rate && tax_rate <= 1e5" << '\n';
     return -4;
   }
   if (tax_rate_l < 1e-5 || tax_rate_l > 1e5) {
     cerr << "invaild argument:" << '\n';
-    cerr << "  tax_rate_l:" << '\n';
+    cerr << "  tax_rate_l(%):" << '\n';
     cerr << "    1e-5 <= tax_rate_l && tax_rate_l <= 1e5" << '\n';
     return -5;
   }
@@ -119,7 +119,7 @@ void tax_rate_calculate_after(vector<long long> const &property,
 template<class T> string const &regex_money(T value, size_t unit) {
   static string s1, s2;
   stringstream ss;
-  ss << fixed << setprecision(0) << value;
+  ss << fixed << setprecision(20) << value;
   ss >> s1;
   s2.clear();
   for (size_t i = 1; i <= s1.size(); ++i) {
@@ -142,6 +142,7 @@ int main(int ac, char **av) {
   generate_random(property, n);
   tax_rate_calculate_before(property, before);
   tax_rate_calculate_after(property, after, income, tax_rate, tax_rate_l);
+  cout << "num:\t" << "income  " << "tax(before)  " << "tax(after)  " << '\n';
   if (n <= 100) {
     for (size_t i = 0; i < n; ++i) {
       cout << i + 1 << ":\t" <<
