@@ -46,12 +46,12 @@ int argument_check(int ac, char **av, long long &n, long long &sect) {
     cerr << "    kInc.size() == kTax.size()" << '\n';
     return -4;
   }
-  // if (accumulate(kTax.begin(), kTax.end(), 0.0) != 100.0) {
-  //   cerr << "invaild argument:" << '\n';
-  //   cerr << "  kTax:" << '\n';
-  //   cerr << "    accumulate(kTax) == 100.0" << '\n';
-  //   return -5;
-  // }
+  if (accumulate(kTax.begin(), kTax.end(), 0.0) >= 100.0) {
+    cerr << "invaild argument:" << '\n';
+    cerr << "  kTax:" << '\n';
+    cerr << "    accumulate(kTax) < 100.0" << '\n';
+    return -5;
+  }
   return 0;
 }
 template<class T> T __random(T mnm, T mxm) {
