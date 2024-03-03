@@ -141,9 +141,9 @@ int main(int ac, char **av) {
   generate_random(income, n, sect);
   taxrate_calculate_before(income, before);
   taxrate_calculate_after(income, after, taxrates);
-  cout << fixed << setprecision(2);
-  cout << "num:\t" << "income  " << "tax(before)  " << "tax(after)  " <<
-      "taxrate(after)  " << "pure_income(after)" << '\n';
+  cout << fixed << setprecision(2) <<
+      "num:\t" << "income  " << "tax(before)  " <<
+      "tax(after)  " << "taxrate(after)  " << "pure_income(after)" << '\n';
   for (size_t i = 0; i < n; ++i) {
     cout << i + 1 << ":\t" <<
         regex_money(income[i], unit) << "    " <<
