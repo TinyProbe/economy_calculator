@@ -43,13 +43,13 @@ int argument_check(int ac, char **av, long long &n, long long &sect) {
   if (accumulate(kTax.begin(), kTax.end(), 0.0) != 100.0) {
     cerr << "invaild argument:" << '\n';
     cerr << "  kTax:" << '\n';
-    cerr << "    accumulate(kTax) == 1e2\n";
+    cerr << "    accumulate(kTax) == 100.0" << '\n';
     return -4;
   }
   if (kInc.size() != kTax.size()) {
     cerr << "invaild argument:" << '\n';
     cerr << "  kInc, kTax:" << '\n';
-    cerr << "    kInc.size() == kTax.size()\n";
+    cerr << "    kInc.size() == kTax.size()" << '\n';
     return -5;
   }
   return 0;
