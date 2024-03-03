@@ -105,7 +105,7 @@ void taxrate_calculate_after(vector<long long> const &income,
     for (size_t j = 1; j < kInc.size(); ++j) {
       if (income[i] < kInc[j]) {
         double ratio = (double)max(0ll, income[i] - kInc[j - 1]) /
-                       (double)(kInc[j] - kInc[j - 1]);
+                       (double)max(0ll, kInc[j] - kInc[j - 1]);
         taxrates[i] += ratio * kTax[j];
         break;
       }
