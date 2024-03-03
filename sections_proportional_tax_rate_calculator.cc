@@ -117,7 +117,7 @@ void taxrate_calculate_after(vector<long long> const &income,
 template<class T> string const &regex_money(T value, size_t unit) {
   static string s1, s2;
   stringstream ss;
-  ss << fixed << setprecision(0) << value;
+  ss << fixed << setprecision(20) << value;
   ss >> s1;
   s2.clear();
   for (size_t i = 1; i <= s1.size(); ++i) {
@@ -142,7 +142,7 @@ int main(int ac, char **av) {
   taxrate_calculate_before(income, before);
   taxrate_calculate_after(income, after, taxrates);
   cout << fixed << setprecision(2);
-  cout << "Num:\t" << "income  " << "tax(before)  " << "tax(after)  " <<
+  cout << "num:\t" << "income  " << "tax(before)  " << "tax(after)  " <<
       "taxrate(after)  " << "pure_income(after)" << '\n';
   for (size_t i = 0; i < n; ++i) {
     cout << i + 1 << ":\t" <<
