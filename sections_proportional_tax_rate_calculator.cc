@@ -133,7 +133,6 @@ int main(int ac, char **av) {
   vector<long long> income, before, after;
   vector<double> taxrates;
   long long n, sect;
-  double taxrate;
   size_t unit = 3;
   if (int tmp = argument_check(ac, av, n, sect)) {
     return tmp;
