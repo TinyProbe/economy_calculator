@@ -119,7 +119,7 @@ void tax_rate_calculate_after(vector<long long> const &property,
 template<class T> string const &regex_money(T value, size_t unit) {
   static string s1, s2;
   stringstream ss;
-  ss << fixed << setprecision(20) << value;
+  ss << fixed << setprecision(0) << value;
   ss >> s1;
   s2.clear();
   for (size_t i = 1; i <= s1.size(); ++i) {
