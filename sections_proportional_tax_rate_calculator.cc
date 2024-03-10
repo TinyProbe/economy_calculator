@@ -13,8 +13,8 @@ vector<long long> const kInc = {
 };
 vector<double> const kTax = {
   0.0, 0.0, 0.0, 0.0, 0.0,
-  1.0, 2.0, 4.0, 12.0, 20.0,
-  24.0, 15.0, 10.0, 5.0, 2.0,
+  1.0, 2.0, 4.0, 14.0, 22.0,
+  16.0, 12.0, 8.0, 4.0, 2.0,
 };
 int argument_check(int ac, char **av, long long &n, long long &sect) {
   if (ac != 2 && ac != 3) {
